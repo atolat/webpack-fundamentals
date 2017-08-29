@@ -38,9 +38,9 @@ module.exports = {
 ```
 
 ## Production build config
-We can create a production specific config that imports the devconfig.
-1.Add production dependencies to package.json
-2.Creete a webpack-production.config.js file, impoer dev config and add prod specific dependencies.
+We can create a production specific config that imports the devconfig.    
+1.Add production dependencies to package.json    
+2.Create a webpack-production.config.js file, impoer dev config and add prod specific dependencies.    
 ```
 //prod-config, includes everything from dev-config+striploader
 var ProdDependency = require('strip-loader');
