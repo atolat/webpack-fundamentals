@@ -36,3 +36,22 @@ module.exports = {
   watch: true //enter watch mode
 }
 ```
+
+## Production build config
+We can create a production specific config that imports the devconfig.
+1.Add production dependencies to package.json
+2.Creete a webpack-production.config.js file, impoer dev config and add prod specific dependencies.
+```
+//prod-config, includes everything from dev-config+striploader
+var ProdDependency = require('strip-loader');
+var devConfig = require('./path/to/devconfig');
+//prod config, commonjs
+var stripLoader = {
+  test: [...],
+  exclude: ...;
+  loader: ProdDependency.loader('console.log') //strip out console.log from dev code.
+}
+
+devConfig.module.loaders.push(stripLoader);
+module.exports = devConfig;
+```
